@@ -120,3 +120,21 @@ compose.desktop {
         }
     }
 }
+
+tasks.withType<org.gradle.jvm.tasks.Jar> {
+    // Need for valid signature check
+    exclude(
+        "META-INF/*.SF",
+        "META-INF/*.DSA",
+        "META-INF/*.RSA",
+        "META-INF/*.EC"
+    )
+
+    exclude(
+        "META-INF/INDEX.LIST",
+        "META-INF/DEPENDENCIES",
+        "META-INF/LICENSE*",
+        "META-INF/NOTICE*"
+    )
+}
+
